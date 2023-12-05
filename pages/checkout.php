@@ -43,46 +43,40 @@
                         </div>
                         <div class="shipping-info">
                             <h6>Arrearage</h6>
-                            <p><?php echo $row['arrears']?></p>
+                            <p><?php echo $row['arrears']?></p> <?php }?>
                             <h6>Status</h6>
                             <p>
-                            <div class="form-group mb-9">
-                                <select name="status" id="selectSupplier" class="select-supplier" >
-                                    <?php 
-                                    
-                                        $status=$row['status'];
-                                        if($status=="new"){?>
-                                            <option value="default" ><?php echo $row['status']?></option>
+                                <div class="product-supplier item">
+                                    <select name="cus" id="selectSupplier" class="select-supplier" >
+                                        <?php
+                                        $sqlsup ="SELECT `status` FROM `order` WHERE `order`.`order_code`= $id";
+                                        $querysup = mysqli_query($conn, $sqlsup);
+                                        while($row = mysqli_fetch_array($querysup)){   
+                                            if($row['status']=="new"){?>
+                                            <option value="default"selected ><?php echo $row['status']?></option>
                                             <option value="ordered">ordered</option>
                                             <option value="partial">partial</option>   
                                             <option value="fullpaid">full paid</option>   
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
-                                        else if($status=="partial paid"||$status=="fullpaid"){?>
-                                            <option value="default" ><?php echo $row['status']?></option>  
+                                        else if($row['status']=="partial paid"||$row['status']=="fullpaid"){?>
+                                            <option value="default" selected ><?php echo $row['status']?></option>  
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
-                                        else if($status=="warning") {?>
-                                            <option value="default" ><?php echo $row['status']?></option>
+                                        else  {?>
+                                            <option value="default" selected><?php echo $row['status']?></option>
                                             <option value="partial">partial</option>   
                                             <option value="fullpaid">full paid</option>   
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
-                                        else if($status=="ordered") {?>
-                                            <option value="default" ><?php echo $row['status']?></option>
-                                            <option value="partial">partial</option>   
-                                            <option value="fullpaid">full paid</option>   
-                                            <option value="cancelled">cancelled</option>   
-                                        <?php
-                                        } ?>
-                                </select>
-                            </div>
+                                        }?>
+                                    </select>
+                                </div>
                             </p>
                         </div>
-                    <?php }?>
                     <hr class="top">
                     <div class="main-strip">
                         <h6>CATEGORY</h6>
@@ -151,3 +145,5 @@
     </div>
 </body>
 </html>
+
+
