@@ -20,12 +20,12 @@
             <?php include '../base/sidebar.php'; ?>
             <div class="content">
                 <div class="page">    
-                    <h2 class="heading">Supplier</h2>
+                    <h2 class="heading">Category</h2>
                     <hr class="top">
                 <div class="main-strip">
-                    <h6>Supplier No</h6>
+                    <h6>Category No</h6>
                     <h6>Name</h6>
-                    <h6>Address</h6>
+                    <h6>Color</h6>
                 </div>
                 <?php 
                      $sqlbolt="SELECT * FROM  `category`  ";
