@@ -55,12 +55,12 @@
 }
 
 .main-strip{
-	column-count: 4;
+	column-count: 5;
 	margin-top: 17px;
 }
 
 .main-strip h6{
-	font-size: 20px;
+	font-size: 15px;
 	color: #212e59;
 	margin-top: 0px;
 	font-family: 'Teko', sans-serif; 
@@ -76,7 +76,7 @@
 }
 
 .shipping{
-	column-count: 4;
+	column-count: 5;
 	margin-top: 10px;
 }
 
