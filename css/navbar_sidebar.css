@@ -19,6 +19,10 @@ body{
     background-color: rgb(153, 205, 205);
 }
 
+.contextimg{
+    width: 100px;
+    margin-left: 425px;
+}
 /* =============navbar============ */
 .nav-bar{
     background-color: rgb(173, 235, 208);
