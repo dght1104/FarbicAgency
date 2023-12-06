@@ -19,15 +19,12 @@ if(isset($_REQUEST['btnsubmit'])) {
     $gia = $_REQUEST['price'];
     $ncc = $_REQUEST['sup'];
 
-echo $ten; echo $mau; echo $gia; echo $ncc;
-
     $sql = "INSERT INTO `category`( `name`, `color`,  `sup_code`) 
           VALUES ('$ten','$mau','$ncc')";
           if(mysqli_query($conn, $sql)){
-   
           } else{
-             
           }
+          header("Location: categories.php");
 }
 ?>
     <div class="container-scroller">
@@ -44,7 +41,7 @@ echo $ten; echo $mau; echo $gia; echo $ncc;
                             <input type="text" class="input-id" placeholder="C45902" name="">
                         </div>
                         <!-- NAME -->
-                        <div class="product-name item">
+                        <div class="product-name item" styles="width: 90px;">
                             <h3>Name:</h3>
                             <input type="text" class="" placeholder="Text your category name" name="name">
                         </div>
@@ -67,9 +64,9 @@ echo $ten; echo $mau; echo $gia; echo $ncc;
                             <select name="sup" id="selectSupplier" class="select-supplier" >
                                 <option value="default" disabled hidden selected >Select a supplier</option>
                                 <?php
-                                 $sqlsup ="SELECT `supplier`.`sup_code`, `supplier`.`name` FROM `supplier`;";
-                                 $querysup = mysqli_query($conn, $sqlsup);
-                                while($row = mysqli_fetch_array($querysup)){
+                                    $sqlsup ="SELECT `supplier`.`sup_code`, `supplier`.`name` FROM `supplier`;";
+                                    $querysup = mysqli_query($conn, $sqlsup);
+                                    while($row = mysqli_fetch_array($querysup)){
                                 ?>    
                                     <option value="<?php echo $row['sup_code']?>"><?php echo $row['name']?></option>
                                  <?php     

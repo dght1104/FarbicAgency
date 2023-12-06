@@ -15,19 +15,22 @@
     <title>Product</title>
 </head>
 <body>
+<?php
+$id=$_GET['id'];
+?>
     <div class="container-scroller">
         <?php include '../base/navbar.php'; ?>
         <div class="page-body-wraper">
             <?php include '../base/sidebar.php'; ?>
             <div class="content">
-                <div class="page">
-                    <h1 class="header" >CHI TIẾT ĐƠN HÀNG</h1>
-                        <?php 
+                <div class="page"><?php 
                             $id=$_GET['id'];
                             $sqlcus ="SELECT * FROM `order` INNER JOIN `customer` INNER JOIN `cusphone` WHERE `order`.`cus_code`= `customer`.`cus_code` AND `order`.`cus_code`= `cusphone`.`cus_code`AND `order`.`order_code`=$id ;  ";
                             $querybolt = mysqli_query($conn, $sqlcus);
                             while($row = mysqli_fetch_array($querybolt)){
                         ?>
+                    <form action="../php/update.php?id=<?php echo $row['order_code']?>" method="post">
+                    <h1 class="header" >CHI TIẾT ĐƠN HÀNG</h1>
                         <p class="address"><b>ORDER NO: </b><?php echo $row['order_code']?></p>
                         <div class="shipping-info-head">
                             <h6>Name</h6>
@@ -47,35 +50,41 @@
                             <h6>Status</h6>
                             <p>
                                 <div class="product-supplier item">
-                                    <select name="cus" id="selectSupplier" class="select-supplier" >
-                                        <?php
-                                        $sqlsup ="SELECT `status` FROM `order` WHERE `order`.`order_code`= $id";
+                                    <select name="status" id="selectSupplier" class="select-supplier" >
+                                    <?php
+                                        $sqlsup ="SELECT `status`, `reason` FROM `order` WHERE `order`.`order_code`= $id";
                                         $querysup = mysqli_query($conn, $sqlsup);
                                         while($row = mysqli_fetch_array($querysup)){   
                                             if($row['status']=="new"){?>
-                                            <option value="default"selected ><?php echo $row['status']?></option>
+                                            <option value="<?php echo $row['status']?>"selected ><?php echo $row['status']?></option>
                                             <option value="ordered">ordered</option>
-                                            <option value="partial">partial</option>   
-                                            <option value="fullpaid">full paid</option>   
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
-                                        else if($row['status']=="partial paid"||$row['status']=="fullpaid"){?>
-                                            <option value="default" selected ><?php echo $row['status']?></option>  
+                                        else if($row['status']=="partial"||$row['status']=="fullpaid"){?>
+                                            <option value="<?php echo $row['status']?>" selected ><?php echo $row['status']?></option>  
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
                                         else  {?>
-                                            <option value="default" selected><?php echo $row['status']?></option>
-                                            <option value="partial">partial</option>   
-                                            <option value="fullpaid">full paid</option>   
+                                            <option value="<?php echo $row['status']?>" selected><?php echo $row['status']?></option>
                                             <option value="cancelled">cancelled</option>   
                                         <?php
                                         } 
-                                        }?>
+                                        ?>
                                     </select>
                                 </div>
                             </p>
+                        </div>
+                        <div class="shipping-info">
+                            <div class="product-name item">
+                                <h6>Reason</h6>
+                                <input type="text" disabled class="" placeholder="
+                                <?php
+                                 echo $row['reason']; }
+                                ?>
+                                " id="reasonid">
+                            </div>
                         </div>
                     <hr class="top">
                     <div class="main-strip">
@@ -105,7 +114,6 @@
                         $querypr = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_array($querypr)){
                     ?>
-
                         <div class="shipping-total-2">
                             <h6>TOTAL</h6>
                             <h6>$
@@ -133,15 +141,17 @@
                         <td><?php echo $row['money']?></td>
                         <td><?php echo $row['date_pay']?></td>
                         </tr><?php } ?>
-                    </table>
+                        </table>
+                        <button class="Btn" name="btnsubmit"  >
+                            <span class="btnIcon">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            <span class="text">Update</span> 
+                        </button>
+                    <form>
                 </div>
             </div>  
-        </div> <button class="Btn" name="btnsubmit">
-    <span class="btnIcon">
-        <i class="fa fa-plus"></i>
-    </span>
-    <span class="text">Copy</span> 
-</button>
+        </div>
     </div>
 </body>
 </html>

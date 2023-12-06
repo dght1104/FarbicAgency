@@ -1,5 +1,5 @@
 <?php 
-    // session_start();
+    session_start();
     // if (isset($_SESSION['id'])) {
 
 // huy session
@@ -7,6 +7,7 @@
 // session_unset();
 // session_destroy();         
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +16,16 @@
     <link rel="stylesheet" href="../css/navbar_sidebar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../css/supplier_form.css">
 </head>
 <body>
     <div class="container-scroller">
         <?php include '../base/navbar.php'; ?>
         <div class="page-body-wraper">
             <?php include '../base/sidebar.php'; ?>
-            <div class="contextimg">
-                <img src="../image/dashboard.png" alt="">
+            <div class="main-content-wrap">
+                <div class="test">
+                    <img src="../image/dashboard.png"style="margin-left: 150px">
+                </div>
             </div>
         </div>
     </div>

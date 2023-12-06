@@ -20,15 +20,15 @@ if ((isset($_POST['userName'])) && (isset($_POST['password']))) {
         exit();
     } else {
         // valid 
-        $sql = "SELECT * FROM account WHERE user_name = '$username' AND password = '$password' ";
+        $sql = "SELECT * FROM account WHERE USERNAME = '$username' AND PASSWORD = '$password' ";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            if ( ($row['user_name'] === $username) && ($row['password'] === $password) ) {
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['username'] = $row['user_name'];
-                $_SESSION['password'] = $row['password'];
-                $_SESSION['account_name'] = $row['AdminName'];
+            if ( ($row['USERNAME'] === $username) && ($row['PASSWORD'] === $password) ) {
+                $_SESSION['ID'] = $row['id'];
+                $_SESSION['USERNAME'] = $row['user_name'];
+                $_SESSION['PASSWORD'] = $row['password'];
+                $_SESSION['ACCOUNT_NAME'] = $row['AdminName'];
                 echo($_SESSION['id']);
                 header("Location: ../pages/main.php");
                 exit();

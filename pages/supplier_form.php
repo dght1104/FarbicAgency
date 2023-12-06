@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="../css/navbar_sidebar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/supplier_form.css">
     <link rel="stylesheet" href="../css/navbar_sidebar.css">
     <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../css/prd_detail.css">
-    <link rel="stylesheet" href="../css/checkout.css"><link rel="stylesheet" href="../css/properties_form.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/properties_form.css">
     <title>Properties</title>
 </head>
 <body>
 <?php
-
 if(isset($_REQUEST['btnsubmit'])) {
 	$tensp = $_REQUEST['name'];
 	$diachi = $_REQUEST['address'];
@@ -28,10 +27,9 @@ if(isset($_REQUEST['btnsubmit'])) {
     $sql = "INSERT INTO `supplier`( `name`, `bankacount`, `address`, `taxcode`, `em_code`) 
             VALUES ('$tensp','$bank','$diachi','$tax','$em' )";
             if(mysqli_query($conn, $sql)){
-   
-} else{
-   
-}
+            } else{
+            }
+header("Location: suppliers.php");
 }
 ?>
    <div class="container-scroller">
@@ -52,7 +50,6 @@ if(isset($_REQUEST['btnsubmit'])) {
                             <h3>Name:</h3>
                             <input type="text" class="" placeholder="Text your category name" name="name">
                         </div>
-                        
                         <!-- ADDRESS -->
                         <div class="product-current-price item">
                             <h3 style="font-weight: 500;">Address:</h3>
@@ -69,7 +66,6 @@ if(isset($_REQUEST['btnsubmit'])) {
                          <div class="product-current-price item">
                             <h3 style="font-weight: 500;">Tax Account:</h3>
                             <input type="text" name="taxcode" id="inPutPrice" class="" placeholder="Enter category price" style="width: 165px;">
-                    
                         </div>
                         <!-- EMPLOYEE -->
                         <div class="product-supplier item">
@@ -92,7 +88,7 @@ if(isset($_REQUEST['btnsubmit'])) {
                             <span class="btnIcon">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            <span class="text">Create</span> 
+                            <span class="text">Confirm</span> 
                         </button>
                     </div>
                 </form>

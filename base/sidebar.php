@@ -1,3 +1,4 @@
+<!-- sidebar -->
 <div class="side-bar">
     <ul class="sidebar-item-wraper">
         <li class="sidebar-item">
@@ -11,7 +12,7 @@
         <li class="sidebar-item">
             <a href="../pages/employee.php">
                 <div class="sidebar-item-icon">
-                    <i class="bi bi-people-fill"></i>
+                    <i class="bi bi-people"></i>
                 </div>
                 <div class="sidebar-item-text">Employee</div>
             </a>
@@ -19,12 +20,19 @@
         <li class="sidebar-item">
             <a href="../pages/suppliers.php">
                 <div class="sidebar-item-icon">
-                <i class="bi bi-building-fill-gear"></i>
+                <i class="bi bi-building-gear"></i>
                 </div>
                 <div class="sidebar-item-text">Suppliers</div>
             </a>
         </li>
-        
+        <li class="sidebar-item">
+            <a href="../pages/test_search_receipt.php">
+                <div class="sidebar-item-icon">
+                    <i class="bi bi-receipt-cutoff"></i>
+                </div>
+                <div class="sidebar-item-text">Receipt</div>
+            </a>
+        </li>
         <li class="sidebar-item">
             <a href="../pages/categories.php">
                 <div class="sidebar-item-icon">

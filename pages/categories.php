@@ -26,18 +26,28 @@
                     <h6>Category No</h6>
                     <h6>Name</h6>
                     <h6>Color</h6>
+                    <h6>Supplier</h6>
                 </div>
                 <?php 
-                     $sqlbolt="SELECT * FROM  `category`  ";
+                     $sqlbolt="SELECT `category`.`cate_code`,`category`.`name`,`category`.`color`,`supplier`.`name` as sub_name 
+                     FROM `category` INNER JOIN `supplier` WHERE `category`.`sup_code`=`supplier`.`sup_code`;";
                      $querybolt = mysqli_query($conn, $sqlbolt);
                      while($row = mysqli_fetch_array($querybolt)){
                 ?>
-                <hr class="bottom">
-                <div class="shipping">
-                    <p><?php echo $row['cate_code']?></p>
-                    <p><?php echo $row['name']?></p>
-                    <p><?php echo $row['color']?></p>
-                </div>
+                <hr class="bottom">       
+                <a href="#">
+                    <!-- <style>
+                        .shipping { 
+                        background-color: ;
+                     };
+                    </style> -->
+                    <div class="shipping" style="background-color: <?php echo $row['color']?>;">
+                        <p><?php echo $row['cate_code']?></p>
+                        <p><?php echo $row['name']?></p>
+                        <p><?php echo $row['color']?></p>
+                        <p><?php echo $row['sub_name']?></p>
+                    </div>
+                </a>
                 <?php }?> 
                 <a href="properties_form.php" >
                     <button class="Btn" name="btnsubmit">

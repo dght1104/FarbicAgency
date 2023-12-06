@@ -1,7 +1,7 @@
 <!-- navbar -->
 <div class="nav-bar">
     <div class="navbar-logo">
-        <a href="main.php">
+        <a href="../pages/main.php">
         <img src="../image/web_image/logo1-modified-removebg.png" alt="">
         </a>
     </div>
@@ -9,7 +9,7 @@
         <button class="toggler-button">
             <i class="bi bi-list"></i>
         </button>
-        <div class="search-field">
+        <!-- <div class="search-field">
             <form action="#search" method="$_POST" class="form-search-box" onsubmit="process_find()">
                 <button type="submit" class="search-icon">
                     <i class="bi bi-search"></i>
@@ -20,7 +20,7 @@
                     <i class="bi bi-caret-down-fill" hidden></i>
                 </div>
             </form>
-        </div>
+        </div> -->
         <ul class="navbar-item-wraper">
             <li class="navbar-item profile-admin">
                 <div class="nav-profile-img">
